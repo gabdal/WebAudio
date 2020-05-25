@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Audio version="1.0" timeUnit="ms" interactionArea="#touchArea" gain="-10dB">
+	
+	<Chain gain="-10dB">
+		<OscillatorNode type="sine">
+			<frequency follow="relX" map="0,100,60,72,MIDI" steps="0 2 4 5 7 9 11 12"></frequency>
+		</OscillatorNode> 
+		<GainNode>
+		<gain>
+			<Envelope adsr="500,100,50,100" trig="pointer" max="1"></Envelope>
+		</gain>
+		</GainNode>
+		<BiquadFilterNode type="lowpass" frequency="500">
+		</BiquadFilterNode>
+		<BiquadFilterNode type="highpass" frequency="300">
+		</BiquadFilterNode>
+		<Send output="#delay1"></Send>
+	</Chain>
+
+	<Chain gain="-10dB">
+		<OscillatorNode type="triangle">
+			<frequency follow="relX" map="0,100,60,72,MIDI" steps="0 2 4 5 7 9 11 12"></frequency>
+		</OscillatorNode> 
+		<GainNode>
+		<gain>
+			<Envelope adsr="500,100,50,100" trig="pointer" max="1"></Envelope>
+		</gain>
+		</GainNode>
+		<BiquadFilterNode type="lowpass" frequency="1000">
+		</BiquadFilterNode>
+		<BiquadFilterNode type="highpass" frequency="800">
+		</BiquadFilterNode>
+		<Send output="#delay1"></Send>
+	</Chain>
+
+	<Chain gain="-10dB">
+		<OscillatorNode type="square">
+			<frequency follow="relX" map="0,100,60,72,MIDI" steps="0 2 4 5 7 9 11 12"></frequency>
+		</OscillatorNode> 
+		<GainNode>
+		<gain>
+			<Envelope adsr="500,100,50,100" trig="pointer" max="1"></Envelope>
+		</gain>
+		</GainNode>
+		<BiquadFilterNode type="lowpass" frequency="1700">
+		</BiquadFilterNode>
+		<BiquadFilterNode type="highpass" frequency="1500">
+		</BiquadFilterNode>
+		<Send output="#delay1"></Send>
+	</Chain>
+
+	<Chain>
+		<OscillatorNode type="sawtooth">
+			<frequency follow="relY" map="0,100,60,72,MIDI" steps="0 2 4 5 7 9 11 12"></frequency>
+		</OscillatorNode> 
+		<GainNode>
+		<gain>
+			<Envelope adsr="500,100,50,100" trig="pointer" max="1"></Envelope>
+		</gain>
+		</GainNode>
+		<BiquadFilterNode type="lowpass" frequency="500">
+		</BiquadFilterNode>
+		<BiquadFilterNode type="highpass" frequency="300">
+		</BiquadFilterNode>
+		<Send output="#delay2"></Send>
+	</Chain>
+
+	<Chain>
+		<OscillatorNode type="sine">
+			<frequency follow="relY" map="0,100,60,72,MIDI" steps="0 2 4 5 7 9 11 12"></frequency>
+		</OscillatorNode> 
+		<GainNode>
+		<gain>
+			<Envelope adsr="500,100,50,100" trig="pointer" max="1"></Envelope>
+		</gain>
+		</GainNode>
+		<BiquadFilterNode type="lowpass" frequency="1000">
+		</BiquadFilterNode>
+		<BiquadFilterNode type="highpass" frequency="800">
+		</BiquadFilterNode>
+		<Send output="#delay2"></Send>
+	</Chain>
+
+	<Chain>
+		<OscillatorNode type="sine">
+			<frequency follow="relY" map="0,100,60,72,MIDI" steps="0 2 4 5 7 9 11 12"></frequency>
+		</OscillatorNode> 
+		<GainNode>
+		<gain>
+			<Envelope adsr="500,100,50,100" trig="pointer" max="1"></Envelope>
+		</gain>
+		</GainNode>
+		<BiquadFilterNode type="lowpass" frequency="1700">
+		</BiquadFilterNode>
+		<BiquadFilterNode type="highpass" frequency="1500">
+		</BiquadFilterNode>
+		<Send output="#delay2"></Send>
+	</Chain>
+
+	<Chain id="delay1">
+      	<DelayNode delaytime="200"></DelayNode>
+      	<GainNode gain="-6dB"></GainNode>
+    </Chain>
+	
+	<Chain id="delay2">
+      	<DelayNode delaytime="400"></DelayNode>
+      	<GainNode gain="-6dB"></GainNode>
+    </Chain>
+	
+
+</Audio>

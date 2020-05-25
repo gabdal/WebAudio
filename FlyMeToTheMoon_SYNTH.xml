@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Audio version="1.0" timeUnit="ms" interactionArea="#touchArea" gain="-10dB">
+	
+	<Chain gain="-5dB">
+		<OscillatorNode type="square">
+			<frequency follow="relX" map="0,100,60,72,MIDI" steps="9, 2, 7, 0, 5, 11, 4, 9"></frequency>
+		</OscillatorNode> 
+		<GainNode>
+		<gain>
+			<Envelope adsr="500,100,50,100" trig="pointer" max="1"></Envelope>
+		</gain>
+		</GainNode>
+
+		<BiquadFilterNode type="lowpass" frequency="1000">
+		</BiquadFilterNode>
+		<Send output="#delay1"></Send>
+		<StereoPannerNode pan="-0.75"></StereoPannerNode>
+	</Chain>
+
+	<Chain gain="-5dB">
+		<OscillatorNode type="square">
+			<frequency follow="relX" map="0,100,64,76,MIDI" steps="8, 1, 7, 0, 5, 10, 4, 8"></frequency>
+		</OscillatorNode> 
+		<GainNode>
+		<gain>
+			<Envelope adsr="500,100,50,100" trig="pointer" max="1"></Envelope>
+		</gain>
+		</GainNode>
+		<BiquadFilterNode type="lowpass" frequency="1000">
+		</BiquadFilterNode>
+		<Send output="#delay2"></Send>
+		<StereoPannerNode pan="-0.25"></StereoPannerNode>
+	</Chain>
+
+	<Chain gain="-5dB">
+		<OscillatorNode type="square">
+			<frequency follow="relX" map="0,100,68,80,MIDI" steps="8, 1, 6, 11, 4, 9, 3, 8"></frequency>
+		</OscillatorNode> 
+		<GainNode>
+		<gain>
+			<Envelope adsr="500,100,50,100" trig="pointer" max="1"></Envelope>
+		</gain>
+		</GainNode>
+		<BiquadFilterNode type="lowpass" frequency="800">
+		</BiquadFilterNode>
+		<Send output="#delay3"></Send>
+		<StereoPannerNode pan="0.25"></StereoPannerNode>
+	</Chain>
+	
+	<Chain gain="-5dB">
+		<OscillatorNode type="square">
+			<frequency follow="relX" map="0,100,71,83,MIDI" steps="8, 1, 6, 0, 5, 10, 3, 8"></frequency>
+		</OscillatorNode> 
+		<GainNode>
+		<gain>
+			<Envelope adsr="500,100,50,100" trig="pointer" max="1"></Envelope>
+		</gain>
+		</GainNode>
+		<BiquadFilterNode type="lowpass" frequency="800">
+		</BiquadFilterNode>
+		<Send output="#delay4"></Send>
+		<StereoPannerNode pan="0.75"></StereoPannerNode>
+	</Chain>
+
+	<Chain id="delay1">
+      	<DelayNode delaytime="200"></DelayNode>
+      	<GainNode gain="-6dB"></GainNode>
+		  <StereoPannerNode pan="-0.75"></StereoPannerNode>
+    </Chain>
+	
+	<Chain id="delay2">
+      	<DelayNode delaytime="400"></DelayNode>
+      	<GainNode gain="-6dB"></GainNode>
+		  <StereoPannerNode pan="-0.25"></StereoPannerNode>
+    </Chain>
+
+	<Chain id="delay3">
+      	<DelayNode delaytime="800"></DelayNode>
+      	<GainNode gain="-6dB"></GainNode>
+		  <StereoPannerNode pan="0.25"></StereoPannerNode>
+    </Chain>
+
+	<Chain id="delay4">
+      	<DelayNode delaytime="1000"></DelayNode>
+      	<GainNode gain="-6dB"></GainNode>
+		  <StereoPannerNode pan="0.75"></StereoPannerNode>
+    </Chain>
+	
+
+</Audio>

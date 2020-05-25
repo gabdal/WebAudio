@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Audio version="1.0" timeUnit="ms" interactionArea="#touchArea" gain="-10dB">
+	<Chain portamento="50">
+
+		<OscillatorNode type="triangle">
+			<frequency follow="relX" map="0,100,36,60, MIDI" steps="0 3 5 6 7 10 12"></frequency>
+		</OscillatorNode>
+
+		<BiquadFilterNode type="lowpass">
+			<frequency follow="relY" map="100,0,0,5000, 3"></frequency>
+		</BiquadFilterNode>
+
+		<GainNode>
+			<gain>
+				<Envelope adsr="100,100,50,20" trig="pointer" max="1"></Envelope>
+			</gain>
+		</GainNode>
+
+		<Send output="#delay" gain="-6dB"></Send>
+
+	</Chain>
+	<Chain id="delay">
+	<DelayNode delayTime = "200"></DelayNode>
+	<Send output="#delay" gain="-3dB"></Send>
+	</Chain>
+
+</Audio>
